@@ -2,41 +2,57 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:minHeight="75dp">
+    android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/iv_image"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="70dp"
-        android:layout_weight="5"
-        android:src="@android:drawable/ic_menu_gallery"
-        />
+        android:layout_height="wrap_content">
 
-    <LinearLayout
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:padding="5dp"
+            android:layout_alignParentLeft="true"
+            android:src="@android:drawable/ic_menu_gallery"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:minHeight="70dp"
+            android:layout_toRightOf="@+id/iv_image"
+            android:layout_centerInParent="true"
+            android:paddingLeft="10dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center|left"
+                android:textColor="#1f31d9"
+                android:textSize="20sp"
+                android:gravity="center|left"/>
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="16sp"
+                android:textColor="#506fa9"
+                android:layout_gravity="center|left"
+                android:gravity="center|left"/>
+
+        </LinearLayout>
+
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:minHeight="70dp"
-        android:layout_weight="1">
+        android:layout_alignParentBottom="true"
+        android:layout_height="1px"
+        android:background="#000000"/>
 
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:id="@+id/tv_description"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_weight="1"/>
-
-    </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>
