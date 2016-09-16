@@ -1,11 +1,14 @@
 package ru.bda.itunes.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -18,9 +21,11 @@ import ru.bda.itunes.model.SearchAgent;
 public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.ViewHolder> {
 
     private List<SearchAgent> agentList;
+    private Context mContext;
 
-    public MyRecyclerAdapter(List<SearchAgent> agentList) {
+    public MyRecyclerAdapter(List<SearchAgent> agentList, Context mContext) {
         this.agentList = agentList;
+        this.mContext = mContext;
     }
 
     @Override
@@ -34,6 +39,10 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
         final SearchAgent agent = agentList.get(position);
         holder.tvName.setText(agent.getName());
         holder.tvDescription.setText(agent.getDescription());
+        Picasso.with(mContext).load(agent.getUrlImage())
+                .placeholder(android.R.drawable.ic_menu_gallery)
+                .error(android.R.drawable.ic_menu_gallery)
+                .into(holder.ivImage);
     }
 
     @Override
